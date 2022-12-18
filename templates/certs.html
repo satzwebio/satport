@@ -4,9 +4,11 @@
         <section class="projects">
             {% for tec in certslist %}
                    <article class="cert-card">
-                    {% set fname = 'static\\img\\certs\\' + tec %}
+                    {% fname = url_for('static', filename='img/pointer.svg') %}  
+                        <!-- {% set fname = 'static\\img\\certs\\' + tec %} -->
                     <img class="cert-card__image"
-                           src="{{fname }}">
+                        src="{{ url_for('static', filename='img/certs' + tec + '.png') }}">
+                           
                     </article>
             {% endfor %}
         </section>
