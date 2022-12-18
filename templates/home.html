@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="main main--home">
+        <section class="projects">
+            {% for project in projects %}
+            <a class="u-bare-link" href="{{ url_for('project', slug=project['slug']) }}">
+                   <article class="project-card">
+                        <img
+                            class="project-card__image"
+                            src="{{ url_for('static', filename=project['thumb']) }}">
+                            <alt="{{ project['thumb'] }} hero image" />
+                           <header class="project-card__meta">
+                            <ul class="categories">
+                                {% for tec in project["tech"] %}
+                                    <li class="categories__tag">{{ tec}}</li>
+                                {% endfor %}
+                            </ul>
+
+                            <h2 class="project-card__name">{{ project['projname'] }}<h2/>
+                        </header>
+                    </article>
+                </a>
+            {% endfor %}
+        </section>
+    </main>
+    <div id="myproSidenav">
+        <!-- <a id="add_proj" href="{{ url_for('add_proj') }}">
+            Add new projects
+        </a> -->
+    </div>
+{% endblock %}

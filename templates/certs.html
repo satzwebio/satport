@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="main main--home">
+        <section class="projects">
+            {% for tec in certslist %}
+                   <article class="cert-card">
+                    {% set fname = 'static\\img\\certs\\' + tec %}
+                    <img class="cert-card__image"
+                           src="{{fname }}">
+                    </article>
+            {% endfor %}
+        </section>
+    </main>
+    <div id="mycerSidenav">
+        <!-- <a id="add_cert" href="{{ url_for('add_certs') }}">
+            Add new Certs
+        </a> -->
+    </div>
+{% endblock %}
