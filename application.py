@@ -55,6 +55,9 @@ def certs():
     # certfold = UPLOAD_FOLDER+'\certs'
     # certfold= r"C:\Users\satzw\OneDrive\Desktop\end\portfolio\static"
     # print(certfold)
+    # The below for loop need rewrite, bcz array is building from onediiver desktop;
+    # so hard coding below
+    certslist=['1Azure_Fundamentals','2azure-administrator-associate','3 aapngaaa.com-4173759','4azure-ai-engineer-600x600-1']
     for filename in os.listdir(CERT_FOLDER):
         certslist.append(filename)
     return render_template("certs.html", certslist=certslist)
