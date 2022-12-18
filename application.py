@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, abort, request, Blueprint, redirect, url_for, flash
 from werkzeug.utils import secure_filename
-# import pymongo
+import pymongo
 
 UPLOAD_FOLDER = r"C:\Users\satzw\OneDrive\Desktop\end\portfolio\static\img\projects"
 CERT_FOLDER = r"C:\Users\satzw\OneDrive\Desktop\end\portfolio\static\img\certs"
@@ -13,7 +13,7 @@ application = Flask(__name__)
 application.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 application.config['CERT_FOLDER'] = CERT_FOLDER
 
-# client = pymongo.MongoClient("mongodb+srv://satzmongo:w-Zet7tVY-ZwiDZ@portfolio.wzlekmv.mongodb.net/test")
+client = pymongo.MongoClient("mongodb+srv://satzmongo:w-Zet7tVY-ZwiDZ@portfolio.wzlekmv.mongodb.net/test")
 
 
 
@@ -42,8 +42,7 @@ application.config['CERT_FOLDER'] = CERT_FOLDER
 #     },
 # ]
 
-# application.db = client.portfolio
-application.db = ""
+application.db = client.portfolio
 slug_to_project = {project["slug"]: project for project in application.db.projects.find({})}
 
 @application.route("/")
@@ -92,8 +91,7 @@ def add_proj():
                 archf.close()      
 
     #       DB Update
-            # mydb = client["portfolio"]
-            mydb = ""
+            mydb = client["portfolio"]
             mycol = mydb["projects"]
             mycol.insert_one({
                 "projname": request.form.get("projname"),
