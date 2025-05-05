@@ -57,7 +57,7 @@ def certs():
     # print(certfold)
     # The below for loop need rewrite, bcz array is building from onediiver desktop;
     # so hard coding below
-    certslist=['1Azure_Fundamentals.png','2azure-administrator-associate.png','3 aapngaaa.com-4173759.png','4azure-ai-engineer-600x600-1.png']
+    certslist=['1Azure_Fundamentals.png','2azure-administrator-associate.png','3 aapngaaa.com-4173759.png','4azure-ai-engineer-600x600-1.png', 'Terraform.png']
     # for filename in os.listdir(CERT_FOLDER):
     #     certslist.append(filename)
     return render_template("certs.html", certslist=certslist)
